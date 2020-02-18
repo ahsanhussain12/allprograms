@@ -1,0 +1,78 @@
+package bankaccount;
+
+public class currentaccount {
+	private double balance;
+	private double interest;
+
+	public currentaccount()
+	{
+		balance = 0;
+		interest = 0;
+	}
+
+	public currentaccount(double initialBalance, double initialInterest)
+	{
+		balance = initialBalance;
+		interest = initialInterest;
+	}
+
+	public void deposit(double amount)
+	{
+		balance = balance + amount;
+	}
+
+	public void withdraw(double amount)
+	{
+		balance = balance - amount;
+	}
+
+	public void addInterest()
+	{
+		balance = balance + balance * interest;
+	}
+
+	public double getBalance()
+	{
+		return balance;
+	}
+
+}
+package bankaccount;
+
+public class currentaccount {
+	private double balance;
+	private double interest;
+
+	public currentaccount()
+	{
+		balance = 0;
+		interest = 0;
+	}
+
+	public currentaccount(double initialBalance, double initialInterest)
+	{
+		balance = initialBalance;
+		interest = initialInterest;
+	}
+
+	public void deposit(double amount)
+	{
+		balance = balance + amount;
+	}
+
+	public void withdraw(double amount)
+	{
+		balance = balance - amount;
+	}
+
+	public void addInterest()
+	{
+		balance = balance + balance * interest;
+	}
+
+	public double getBalance()
+	{
+		return balance;
+	}
+
+}
