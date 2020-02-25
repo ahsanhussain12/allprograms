@@ -1,0 +1,84 @@
+import javax.swing.*;
+import java.sql.SQLOutput;
+import java.util.Scanner;
+import java.util.concurrent.ForkJoinPool;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.print("Enter Your Name: "+"\n");
+        Scanner na= new Scanner(System.in);
+        String nam=na.nextLine();
+        System.out.print("Enter Your Address: "+"\n");
+        Scanner a=new Scanner(System.in);
+        String ad=a.nextLine();
+        System.out.print("Enter Total Number Of Courses: "+"\n");
+        Scanner s= new Scanner(System.in);
+        int n=s.nextInt();
+        Student id1 =new Student(nam,ad,n);
+        id1.addCourse();
+        id1.addCourseGrade();
+        id1.PrintResult();
+    }
+}
+class  Student {
+    private String name;
+    private String address;
+    private int numCourse;
+    private String[] course = new String[7];
+    private double[] grades = new double[7];
+    Student(String name,
+            String address, int numCourse )//,String course[], double[] grades)
+    {
+        this.address = address;
+        this.name = name;
+        this.numCourse = numCourse;
+        //    this.course[numCourse]=course[numCourse];
+        //  this.grades[numCourse]=grades[numCourse];
+    }
+    public String getName() {
+        return name; }
+
+    public String getAddress() {
+        return address; }
+    public void setAddress(String address) {
+        this.address = address; }
+    public String toString(){
+        String s = "Your Name Is: " + getName() + "\n" + "Your Address Is: " + getAddress()+"\n"+"Your no of courses: "+numCourse+"\n"+"your avg grades is: "+getAvggrades();
+        return s;
+    }
+    void PrintResult(){
+        System.out.println(toString());
+        for (int i=0;i<numCourse;i++) {
+            System.out.print("Your course and their respective grades" +
+                    ": "+course[i]+":"+grades[i]);
+
+        }
+    }
+    void addCourse(){
+        System.out.println("Enter your Courses: ");
+        for (int i=0;i<numCourse;i++){
+            Scanner ac =new Scanner(System.in);
+            course[i]=ac.nextLine();
+        }
+
+    }
+    public double getAvggrades(){
+        double g=0;
+        for (int i=0;i<numCourse;i++){
+            g=g+grades[i];
+        }
+        g/=numCourse;
+        return g;
+    }
+    void addCourseGrade(){System.out.println("Enter Your Grades To Adjacent Courses: "+"\n");
+        for(int i=0;i<numCourse;i++){
+            System.out.print(course[i]+" "+":");
+            Scanner gd=new Scanner(System.in);
+            grades[i]=gd.nextDouble();
+
+        }
+    }
+
+}
