@@ -1,0 +1,143 @@
+package javaapplication47;
+
+class person{
+    private String name;
+    private String address;
+
+    
+   public person(){
+       
+   }
+    public person(String name, String address) {
+        this.name = name;
+        this.address = address;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    
+    public String toString() {
+        return "Person[name: " + name + ", address: " + address+"]" ;
+    }
+    
+}
+
+class student extends person{
+    
+    private String program;
+    private int years;
+    private double fee;
+
+    public student(String name, String address,String program, int years,double fee) {
+        super(name, address);
+        this.program = program;
+        this.years = years;
+        this.fee = fee;
+        
+        }
+
+    public String getProgram() {
+        return program;
+    }
+
+    public int getYears() {
+        return years;
+    }
+   
+    public void set_program(String program){
+        this.program = program;
+    }
+
+    public void setYears(int years) {
+        this.years = years;
+    }
+
+    public String toString() {
+        return  "Student["+super.toString()+"] program: " + program + ", years: " + years + ", fee; " + fee+"]" ;
+    }
+        
+}
+
+
+class staff extends person{
+    
+    private String school;
+    private double pay;
+    
+    
+    public staff(String name,String address, String school,double pay){
+       super(name, address);
+        this.school= school;
+        this.pay= pay;
+        
+        
+    }
+    
+    public String getchool(){
+        return school;
+    }
+    
+    public void setschool(String school){
+        this.school= school;
+        
+    }
+    
+    
+    public double pay(){
+        return pay;
+    }
+    
+    
+    public void setpay(double pay){
+        this.pay=pay;
+    }
+
+    @Override
+    public String toString() {
+        return "staff {" + super.toString()+ "school: " + school + ", pay: " + pay + "]";
+    }
+    
+    
+    
+}
+
+/**
+ *
+ * @author tuser
+ */
+public class JavaApplication47 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        
+        student std = new student("Hunaid","namzimabad","cs",2020,30000);
+        System.out.println(std.toString());
+        
+        
+        staff stf = new staff("Hunaid","University road","Iqra",20000);
+        System.out.println(stf.toString());
+        
+        
+    }
+
+   
+}
