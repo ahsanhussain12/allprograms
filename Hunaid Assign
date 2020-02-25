@@ -1,0 +1,4 @@
+run:
+Student[Person[name: Hunaid, address: namzimabad]] program: cs, years: 2020, fee; 30000.0]
+staff {Person[name: Hunaid, address: University road]school: Iqra, pay: 20000.0]
+BUILD SUCCESSFUL (total time: 0 seconds)
