@@ -1,0 +1,110 @@
+package student.project;
+
+import java.sql.SQLOutput;
+import java.util.Scanner;
+
+class Tv {
+   private int channel = 1;
+   private int volumeLevel = 1;
+   private boolean on;
+
+    Tv() {
+    }
+
+    public void turnOn() {
+        boolean on = true;
+        System.out.println("Turn On \n");
+    }
+
+    public void turnOff() {
+        boolean on = false;
+        System.out.println("Turn Off \n");
+    }
+
+    public void setChannel(int newChannel) {
+        channel = newChannel;
+    }
+
+    public void setVolumeLevel(int newVolumeLevel) {
+        volumeLevel = newVolumeLevel;
+    }
+
+    public void channelUp() {
+        if (channel < 120) {
+            channel++;
+        } else {
+            channel = 1;
+        }
+    }
+
+    public void channelDown() {
+        if (channel > 1) {
+            channel--;
+        } else {
+            channel = 120;
+        }
+    }
+
+    public void volumeUp() {
+        if (volumeLevel < 7) {
+            volumeLevel++;
+        }
+    }
+
+    public void volumeDown() {
+        if (volumeLevel > 1) {
+            volumeLevel--;
+        }
+    }
+        public String toString() {
+            String status;
+            status = ("Channel = " +this.channel + "\n" + "Volume = " + this.volumeLevel + "\n");
+            System.out.println(status);
+            return status;
+        }
+    }
+
+public class Main {
+
+    public static void main(String[] args) {
+        Tv tv = new Tv();
+        System.out.println("press 1 for turn on");
+        Scanner b = new Scanner(System.in);
+        int input = b.nextInt();
+        if(input == 1) {
+            tv.turnOn();
+        }
+        for(int i = 5;i <6;) {
+            System.out.println("press 2 for channelup");
+            System.out.println("press 3 for channeldown");
+            System.out.println("press 4 for volumeup");
+            System.out.println("press 5 for volumedown");
+            System.out.println("press 6 for turn off");
+
+            Scanner c = new Scanner(System.in);
+            int input2 = c.nextInt();
+
+            if (input2 == 2) {
+                tv.channelUp();
+                tv.toString();
+            }
+            if (input2==3){
+                tv.channelDown();
+                tv.toString();
+            }
+            if (input2 == 4) {
+                tv.volumeUp();
+                tv.toString();
+            }
+            if (input2==5){
+                tv.volumeDown();
+                tv.toString();
+            }
+
+            if (input2 == 6) {
+                tv.turnOff();
+                break;
+            }
+        }
+    }
+}

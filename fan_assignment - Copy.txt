@@ -1,0 +1,71 @@
+package student.project;
+
+import javax.swing.*;
+import java.util.Scanner;
+
+class Fan{
+    private int speed = 1;
+    private boolean on=false;
+    private double radius = 5;
+    private String color = "blue";
+
+    Fan(){
+    }
+
+    void setOn(boolean a){
+        this.on = a;
+    }
+    boolean getOn(){
+        return on;
+    }
+
+    void setspeed(int a){
+        this.speed = a;
+    }
+    int getSpeed(){
+        return speed;
+    }
+
+    void setRadius(int a){
+        this.radius = a;
+    }
+    double getRadius(){
+        return radius;
+    }
+
+    void setColor(String a){
+        this.color = a;
+    }
+    String getColor(){
+        return color;
+    }
+    public String toString(){
+        String Status = " ";
+        if (on==true) {
+            Status = ("Your fan is turn On" + "\n" + "Speed = " + speed + "\n" + "Radius = " + radius + "\n" + "Color = " + color);
+            System.out.println(Status);
+        }
+        if (on==false){
+            Status = ("Your fan is turn Off" + "\n" + "Speed = " + speed + "\n" + "Radius = " + radius + "\n" + "Color = " + color);
+            System.out.println(Status);
+        }
+        return Status;
+    }
+}
+public class Main {
+
+    public static void main(String[] args) {
+
+        Fan fan = new Fan();
+        System.out.println("Type true for turn on the fan \n Type false for turn off");
+        Scanner a = new Scanner(System.in);
+        boolean input = a.nextBoolean();
+        fan.setOn(input);
+        if(input==true){
+        fan.toString();
+        }
+        if(input==false){
+            fan.toString();
+        }
+    }
+}
