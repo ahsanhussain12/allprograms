@@ -1,0 +1,92 @@
+
+    public double percentage;
+    public commissionemployees(String Name, int ID, double sale, double percentage){
+        super(Name,ID);
+        this.sale = sale;
+        this.percentage = percentage;
+    }
+    public double earnings(){
+        return percentage * sale;
+        
+    }
+}
+package employeedata;
+import java.util.Scanner;
+public class Employeedata {
+
+    public static void main(String[] args) {
+        String Name;
+        int ID;
+        double totalhour;
+        double percentageperhour;
+        double totalsalary;
+        double percentage;
+        double sale;
+
+
+        employee[] arr = new employee[3];
+
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Press 1 For Hourly Employee"+"\n"+ "Press 2 For Salarid Employee"+"\n"+ "Press 3 For Commission Employee"+"\n");
+
+
+        for (int i = 0;i<arr.length;i++) {
+            System.out.println("Press the number For adding Employee");
+            int num = scan.nextInt();
+            switch (num) {
+                case 1:
+                    System.out.println("Fill the details of hour based employee");
+                    System.out.println("Enter full name");
+                    scan.nextLine();
+                    Name = scan.nextLine();
+                    System.out.println("Enter ID");
+                    ID = scan.nextInt();
+                    System.out.println("Enter per hour percentage");
+                    percentageperhour = scan.nextDouble();
+                    System.out.println("Enter total hours");
+                    totalhour = scan.nextDouble();
+
+                    arr[i] = new hourlyemployee(Name, ID, percentageperhour, totalhour);
+                    break;
+                case 2:
+                    System.out.println("Fill The details of Salary based employee");
+                    System.out.println("Enter full name");
+                    scan.nextLine();
+                    Name = scan.nextLine();
+                    System.out.println("Enter ID");
+                    ID = scan.nextInt();
+                    System.out.println("Enter Salary");
+                    totalsalary = scan.nextDouble();
+
+                    arr[i] = new salariedemployee(Name, ID, totalsalary);
+                    break;
+                case 3:
+                    System.out.println("Fill The details of Commission based employee");
+                    System.out.println("Enter Full Name");
+                    scan.nextLine();
+                    Name = scan.nextLine();
+                    System.out.println("Enter ID");
+                    ID = scan.nextInt();
+                    System.out.println("Enter sales percentage ");
+                    percentage = scan.nextDouble();
+                    System.out.println("Enter total sales");
+                    sale = scan.nextDouble();
+
+                    arr[i] = new commissionemployees(Name, ID, sale, percentage);
+                    break;
+
+            }
+        }
+
+        double totalpayment=0;
+        for (int i = 0 ; i<arr.length;i++){
+
+            System.out.println("Employee Salary is"+ "  "+ arr[i].earnings()+ "  "+ arr[i].toString());
+            totalpayment = arr[i].earnings() + totalpayment;
+        }
+
+        System.out.println("You paid Total amount of" + "  "+totalpayment + "to your employee");
+
+    }
+}
+        
